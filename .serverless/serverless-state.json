@@ -228,7 +228,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z/shop-angular-cloudfront.zip"
+                "S3Key": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z/shop-angular-cloudfront.zip"
               },
               "Handler": "src/lambdas/getProducts.handler",
               "Runtime": "nodejs16.x",
@@ -254,7 +254,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z/shop-angular-cloudfront.zip"
+                "S3Key": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z/shop-angular-cloudfront.zip"
               },
               "Handler": "src/lambdas/getProductById.handler",
               "Runtime": "nodejs16.x",
@@ -280,7 +280,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z/shop-angular-cloudfront.zip"
+                "S3Key": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z/shop-angular-cloudfront.zip"
               },
               "Handler": "src/lambdas/createProduct.handler",
               "Runtime": "nodejs16.x",
@@ -306,7 +306,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z/shop-angular-cloudfront.zip"
+                "S3Key": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z/shop-angular-cloudfront.zip"
               },
               "Handler": "swagger/swagger-html.handler",
               "Runtime": "nodejs16.x",
@@ -331,7 +331,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z/shop-angular-cloudfront.zip"
+                "S3Key": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z/shop-angular-cloudfront.zip"
               },
               "Handler": "swagger/swagger-json.handler",
               "Runtime": "nodejs16.x",
@@ -349,54 +349,54 @@
               }
             }
           },
-          "GetProductsLambdaVersionXWLbK5GX6r40VEV4c1ZMjhj1o5CX5tmEB2GztjRg98": {
+          "GetProductsLambdaVersionzpoVkd6VCQ2gnFFLN17nDRPYkZBtLNwP4TzN0k5aa8E": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetProductsLambdaFunction"
               },
-              "CodeSha256": "ObsdY/Yf87RYXVpCLy1/3oH8V5N7kBp5ULhHyeOvq7E="
+              "CodeSha256": "6fJq8uAsZgiByVT+J397UL1QN0PnPXYIdTcZcVhj6ko="
             }
           },
-          "GetProductByIdLambdaVersionh5BtHgFRWGqLGNhhRgouiTgt686R4csvexVsI31pes": {
+          "GetProductByIdLambdaVersionFfBPnYA3F1qCiDlGBkyL9BwuBfvBTxnJKE1LPUFCmQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetProductByIdLambdaFunction"
               },
-              "CodeSha256": "ObsdY/Yf87RYXVpCLy1/3oH8V5N7kBp5ULhHyeOvq7E="
+              "CodeSha256": "6fJq8uAsZgiByVT+J397UL1QN0PnPXYIdTcZcVhj6ko="
             }
           },
-          "CreateProductLambdaVersionRROptRyT75sZrLAa7Gh9aTu2wKAmQ5HXnSqkOJVJo": {
+          "CreateProductLambdaVersionkLCSa87XWhFRkdwpbRWLz47OM055fnDs1Ze8ZdHUNs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateProductLambdaFunction"
               },
-              "CodeSha256": "ObsdY/Yf87RYXVpCLy1/3oH8V5N7kBp5ULhHyeOvq7E="
+              "CodeSha256": "6fJq8uAsZgiByVT+J397UL1QN0PnPXYIdTcZcVhj6ko="
             }
           },
-          "SwaggerUILambdaVersiong4qQcYJV4jbhz6izMfaSUjvdP5SxdH4aWoSX2vgM": {
+          "SwaggerUILambdaVersionNFGZAWvRmzDV7slj3I6IvnL18lgjIzYORUqhRjvW0U": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SwaggerUILambdaFunction"
               },
-              "CodeSha256": "ObsdY/Yf87RYXVpCLy1/3oH8V5N7kBp5ULhHyeOvq7E="
+              "CodeSha256": "6fJq8uAsZgiByVT+J397UL1QN0PnPXYIdTcZcVhj6ko="
             }
           },
-          "SwaggerJSONLambdaVersion2QOiPRPmtTfAt1tCYIXcpbKuUPbqwC3N4EZxIG6NSDQ": {
+          "SwaggerJSONLambdaVersionJBgmEp9GBzr1ld54V1heTyQV7Yo6HWsaocSRtsJdts": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SwaggerJSONLambdaFunction"
               },
-              "CodeSha256": "ObsdY/Yf87RYXVpCLy1/3oH8V5N7kBp5ULhHyeOvq7E="
+              "CodeSha256": "6fJq8uAsZgiByVT+J397UL1QN0PnPXYIdTcZcVhj6ko="
             }
           },
           "HttpApi": {
@@ -879,7 +879,7 @@
           "GetProductsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetProductsLambdaVersionXWLbK5GX6r40VEV4c1ZMjhj1o5CX5tmEB2GztjRg98"
+              "Ref": "GetProductsLambdaVersionzpoVkd6VCQ2gnFFLN17nDRPYkZBtLNwP4TzN0k5aa8E"
             },
             "Export": {
               "Name": "sls-shop-angular-cloudfront-dev-GetProductsLambdaFunctionQualifiedArn"
@@ -888,7 +888,7 @@
           "GetProductByIdLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetProductByIdLambdaVersionh5BtHgFRWGqLGNhhRgouiTgt686R4csvexVsI31pes"
+              "Ref": "GetProductByIdLambdaVersionFfBPnYA3F1qCiDlGBkyL9BwuBfvBTxnJKE1LPUFCmQ"
             },
             "Export": {
               "Name": "sls-shop-angular-cloudfront-dev-GetProductByIdLambdaFunctionQualifiedArn"
@@ -897,7 +897,7 @@
           "CreateProductLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateProductLambdaVersionRROptRyT75sZrLAa7Gh9aTu2wKAmQ5HXnSqkOJVJo"
+              "Ref": "CreateProductLambdaVersionkLCSa87XWhFRkdwpbRWLz47OM055fnDs1Ze8ZdHUNs"
             },
             "Export": {
               "Name": "sls-shop-angular-cloudfront-dev-CreateProductLambdaFunctionQualifiedArn"
@@ -906,7 +906,7 @@
           "SwaggerUILambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SwaggerUILambdaVersiong4qQcYJV4jbhz6izMfaSUjvdP5SxdH4aWoSX2vgM"
+              "Ref": "SwaggerUILambdaVersionNFGZAWvRmzDV7slj3I6IvnL18lgjIzYORUqhRjvW0U"
             },
             "Export": {
               "Name": "sls-shop-angular-cloudfront-dev-SwaggerUILambdaFunctionQualifiedArn"
@@ -915,7 +915,7 @@
           "SwaggerJSONLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SwaggerJSONLambdaVersion2QOiPRPmtTfAt1tCYIXcpbKuUPbqwC3N4EZxIG6NSDQ"
+              "Ref": "SwaggerJSONLambdaVersionJBgmEp9GBzr1ld54V1heTyQV7Yo6HWsaocSRtsJdts"
             },
             "Export": {
               "Name": "sls-shop-angular-cloudfront-dev-SwaggerJSONLambdaFunctionQualifiedArn"
@@ -1087,7 +1087,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "GetProductsLambdaVersionXWLbK5GX6r40VEV4c1ZMjhj1o5CX5tmEB2GztjRg98"
+        "versionLogicalId": "GetProductsLambdaVersionzpoVkd6VCQ2gnFFLN17nDRPYkZBtLNwP4TzN0k5aa8E"
       },
       "getProductById": {
         "handler": "src/lambdas/getProductById.handler",
@@ -1108,7 +1108,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "GetProductByIdLambdaVersionh5BtHgFRWGqLGNhhRgouiTgt686R4csvexVsI31pes"
+        "versionLogicalId": "GetProductByIdLambdaVersionFfBPnYA3F1qCiDlGBkyL9BwuBfvBTxnJKE1LPUFCmQ"
       },
       "createProduct": {
         "handler": "src/lambdas/createProduct.handler",
@@ -1129,7 +1129,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "CreateProductLambdaVersionRROptRyT75sZrLAa7Gh9aTu2wKAmQ5HXnSqkOJVJo"
+        "versionLogicalId": "CreateProductLambdaVersionkLCSa87XWhFRkdwpbRWLz47OM055fnDs1Ze8ZdHUNs"
       },
       "swaggerUI": {
         "name": "shop-angular-cloudfront-dev-swagger-ui",
@@ -1150,7 +1150,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "SwaggerUILambdaVersiong4qQcYJV4jbhz6izMfaSUjvdP5SxdH4aWoSX2vgM"
+        "versionLogicalId": "SwaggerUILambdaVersionNFGZAWvRmzDV7slj3I6IvnL18lgjIzYORUqhRjvW0U"
       },
       "swaggerJSON": {
         "name": "shop-angular-cloudfront-dev-swagger-json",
@@ -1171,7 +1171,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "SwaggerJSONLambdaVersion2QOiPRPmtTfAt1tCYIXcpbKuUPbqwC3N4EZxIG6NSDQ"
+        "versionLogicalId": "SwaggerJSONLambdaVersionJBgmEp9GBzr1ld54V1heTyQV7Yo6HWsaocSRtsJdts"
       }
     },
     "resources": {
@@ -1319,7 +1319,7 @@
         ],
         "artifactsS3KeyDirname": "serverless/shop-angular-cloudfront/dev/code-artifacts",
         "artifact": "C:\\Users\\Jonathan_Rangel\\Desktop\\angular\\shop-angular-cloudfront\\.serverless\\shop-angular-cloudfront.zip",
-        "artifactDirectoryName": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z"
+        "artifactDirectoryName": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z"
       },
       "functions": {
         "getProducts": {
@@ -1341,7 +1341,7 @@
     "artifact": "C:\\Users\\Jonathan_Rangel\\Desktop\\angular\\shop-angular-cloudfront\\.serverless\\shop-angular-cloudfront.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/shop-angular-cloudfront/dev/1684133993120-2023-05-15T06:59:53.120Z",
+    "artifactDirectoryName": "serverless/shop-angular-cloudfront/dev/1684272361592-2023-05-16T21:26:01.592Z",
     "artifact": "shop-angular-cloudfront.zip"
   }
 }
