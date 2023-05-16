@@ -13,8 +13,8 @@
     "lint:format": "npx --no-install lint-staged && npx --no-install pretty-quick --staged",
     "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy:nc": "npm run client:deploy -- --no-confirm",
-    "client:build:deploy": "ng build && npm run client:deploy",
-    "client:build:deploy:nc": "ng build && npm run client:deploy:nc",
+    "client:build:deploy": "npm run build:prod && npm run client:deploy",
+    "client:build:deploy:nc": "npm run build:prod && npm run client:deploy:nc",
     "cloudfront:setup": "sls deploy",
     "cloudfront:domainInfo": "sls domainInfo",
     "cloudfront:invalidateCache": "sls invalidateCloudFrontCache",
@@ -35,6 +35,8 @@
     "@angular/platform-browser": "^15.1.4",
     "@angular/platform-browser-dynamic": "^15.1.4",
     "@angular/router": "^15.1.4",
+    "ajv": "^8.12.0",
+    "aws-sdk": "^2.1377.0",
     "bootstrap": "^4.6.0",
     "rxjs": "^7.8.0",
     "serverless": "^3.30.1",
@@ -42,6 +44,7 @@
     "serverless-finch": "^4.0.0",
     "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
     "tslib": "^2.5.0",
+    "uuid": "^9.0.0",
     "zone.js": "^0.12.0"
   },
   "devDependencies": {

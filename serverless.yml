@@ -22,13 +22,38 @@ frameworkVersion: "3"
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs16.x
   ## this is my personal AWS account. This must be skipped in you serverless.yml
   # profile: personalAccount
 
   # you can overwrite defaults here
   stage: dev
   region: us-east-2
+
+  environment:
+    PRODUCTS_TABLE: products
+    STOCKS_TABLE: stocks
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: "arn:aws:dynamodb:us-east-2:904597884993:table/products"
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: "arn:aws:dynamodb:us-east-2:904597884993:table/stocks"
 
 plugins:
   - serverless-auto-swagger
@@ -82,19 +107,26 @@ package:
 
 functions:
   getProducts:
-    handler: getProducts.handler
+    handler: src/lambdas/getProducts.handler
     events:
       - httpApi:
           path: /products
           method: get
           summary: Get all products
   getProductById:
-    handler: getProductById.handler
+    handler: src/lambdas/getProductById.handler
     events:
       - httpApi:
           path: /products/{productId}
           method: get
           summary: Get one product by his ID
+  createProduct:
+    handler: src/lambdas/createProduct.handler
+    events:
+      - httpApi:
+          path: /products
+          method: post
+          summary: Saves product item into DB
 #functions:
 #  hello:
 #    handler: handler.hello
