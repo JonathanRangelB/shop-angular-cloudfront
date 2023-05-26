@@ -13,7 +13,7 @@ export const environment: Config = {
     product: false,
     order: false,
     import: false,
-    bff: false,
+    bff: true,
     cart: false,
   },
 };
