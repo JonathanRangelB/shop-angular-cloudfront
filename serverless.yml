@@ -33,6 +33,7 @@ provider:
   environment:
     PRODUCTS_TABLE: products
     STOCKS_TABLE: stocks
+    BUCKET_DATA_NAME: ${self:custom.s3BucketName}-data
   iam:
     role:
       statements:
@@ -54,6 +55,14 @@ provider:
             - dynamodb:UpdateItem
             - dynamodb:DeleteItem
           Resource: "arn:aws:dynamodb:us-east-2:904597884993:table/stocks"
+        - Effect: Allow
+          Action:
+            - s3:ListBucket
+          Resource: "arn:aws:s3:::shop-angular-cloudfront3850-data"
+        - Effect: Allow
+          Action:
+            - s3:*
+          Resource: "arn:aws:s3:::shop-angular-cloudfront3850-data/*"
 
 plugins:
   - serverless-auto-swagger
@@ -127,6 +136,21 @@ functions:
           path: /products
           method: post
           summary: Saves product item into DB
+  importProductsFile:
+    handler: src/lambdas/importProductsFile.handler
+    events:
+      - httpApi:
+          path: /import
+          method: get
+  importFileParser:
+    handler: src/lambdas/importFileParser.handler
+    events:
+      - s3:
+          bucket: ${self:custom.s3BucketName}-data
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploaded/
+          existing: true
 #functions:
 #  hello:
 #    handler: handler.hello
@@ -260,7 +284,7 @@ resources:
             DefaultTTL: 0
           ## The certificate to use when viewers use HTTPS to request objects.
           ViewerCertificate:
-            CloudFrontDefaultCertificate: "true"
+            CloudFrontDefaultCertificate: true
           ## Uncomment the following section in case you want to enable logging for CloudFront requests
           # Logging:
           #   IncludeCookies: 'false'
