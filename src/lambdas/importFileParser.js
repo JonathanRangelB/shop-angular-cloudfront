@@ -2,7 +2,7 @@
 
 let csv = require("csv-parser");
 const AWS = require("aws-sdk");
-module.exports.handler = async (event) => {
+module.exports.handler = (event) => {
   try {
     const s3 = new AWS.S3({ region: "us-east-2" });
     const records = event.Records;
