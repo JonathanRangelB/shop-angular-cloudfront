@@ -7,10 +7,7 @@ module.exports.handler = async (event) => {
     const s3 = new AWS.S3({ region: "us-east-2" });
     const records = event.Records;
     const recordsLength = records.length;
-    console.log(
-      "Import file parser lambda was triggered for the files: ",
-      records
-    );
+
     const bucket = process.env.BUCKET_DATA_NAME;
     if (recordsLength === 0) {
       console.log("No records to process");
@@ -38,22 +35,11 @@ module.exports.handler = async (event) => {
               CopySource: `${bucket}/${record.s3.object.key}`,
               Key: record.s3.object.key.replace("uploaded", "parsed"),
             })
-            .promise()
-            .then(async (_) => {
-              console.log(
-                `Copied to ${bucket}/${record.s3.object.key.replace(
-                  "uploaded",
-                  "parsed"
-                )}`
-              );
-              await s3
-                .deleteObject(params)
-                .promise()
-                .then((_) => {
-                  console.log("Object deleted successfully");
-                  s3Stream.destroy();
-                });
-            });
+            .promise();
+          console.log(params);
+          await s3.deleteObject(params).promise();
+          console.log("Object deleted successfully");
+          s3Stream.destroy();
         });
     }
   } catch (error) {
