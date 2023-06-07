@@ -3,7 +3,11 @@ const dynamoInstance = require("../helpers/db");
 const validate = require("../helpers/validate");
 const schema = require("../schemas/product.schema");
 
-module.exports.handler = async (event) => {
+async function handler(event) {
+  insertIntoDynamoDB(event);
+}
+
+async function insertIntoDynamoDB(event) {
   try {
     const productInfo = JSON.parse(event.body);
     const validateResult = validate(schema, productInfo);
@@ -48,4 +52,9 @@ module.exports.handler = async (event) => {
       body: JSON.stringify(error.message),
     };
   }
+}
+
+module.exports = {
+  handler,
+  insertIntoDynamoDB,
 };

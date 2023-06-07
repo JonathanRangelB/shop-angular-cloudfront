@@ -34,6 +34,7 @@ provider:
     PRODUCTS_TABLE: products
     STOCKS_TABLE: stocks
     BUCKET_DATA_NAME: ${self:custom.s3BucketName}-data
+    REGION: ${self:provider.region}
   iam:
     role:
       statements:
@@ -63,6 +64,14 @@ provider:
           Action:
             - s3:*
           Resource: "arn:aws:s3:::shop-angular-cloudfront3850-data/*"
+        - Effect: Allow
+          Action:
+            - sqs:*
+          Resource: "arn:aws:sqs:us-east-2:904597884993:catalogItemsQueue"
+        - Effect: Allow
+          Action:
+            - "sns:*"
+          Resource: "*"
 
 plugins:
   - serverless-auto-swagger
@@ -151,6 +160,12 @@ functions:
           rules:
             - prefix: uploaded/
           existing: true
+  catalogBatchProcess:
+    handler: src/lambdas/catalogBatchProcess.handler
+    events:
+      - sqs:
+          arn: arn:aws:sqs:us-east-2:904597884993:catalogItemsQueue
+          batchSize: 5
 #functions:
 #  hello:
 #    handler: handler.hello
@@ -208,6 +223,17 @@ resources:
           ErrorDocument: index.html
         # VersioningConfiguration:
         #   Status: Enabled
+    MySNSProductTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: createProductTopic
+    MySNSProductSubscription:
+      Type: AWS::SNS::Subscription
+      Properties:
+        Endpoint: Jonathan_Rangel@epam.com
+        Protocol: email
+        TopicArn:
+          Ref: MySNSProductTopic
 
     ## Specifying the policies to make sure all files inside the Bucket are avaialble to CloudFront
     WebAppS3BucketPolicy:

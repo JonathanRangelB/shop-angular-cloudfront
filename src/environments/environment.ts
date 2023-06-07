@@ -14,7 +14,7 @@ export const environment: Config = {
     cart: 'https://k74k9eskp6.execute-api.us-east-2.amazonaws.com',
   },
   apiEndpointsEnabled: {
-    product: false,
+    product: true,
     order: false,
     import: true,
     bff: true,
