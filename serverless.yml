@@ -88,6 +88,10 @@ custom:
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
+  autoswagger:
+    title: "Videogames product store API"
+    typefiles:
+      - ./src/types/api-types.d.ts
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -114,14 +118,22 @@ package:
   include:
     - dist/**
   #    - include-me-dir/**
-  exclude:
-    - node_modules/**
-    - e2e/**
-    - etc/**
-    - .git/**
-    - .vscode/**
-    - .husky/**
-    - .angular/**
+  patterns:
+    - "!node_modules/**"
+    - "!e2e/**"
+    - "!etc/**"
+    - "!.git/**"
+    - "!.vscode/**"
+    - "!.husky/**"
+    - "!.angular/**"
+  # exclude:
+  #   - node_modules/**
+  #   - e2e/**
+  #   - etc/**
+  #   - .git/**
+  #   - .vscode/**
+  #   - .husky/**
+  #   - .angular/**
 
 functions:
   getProducts:
@@ -131,13 +143,32 @@ functions:
           path: /products
           method: get
           summary: Get all products
+          description: Retrieves all products stored on the DB
+          swaggerTags: Products
+          responses:
+            "200":
+              description: Successfully returned all product data
+              # bodyType: helloPostResponse // This is to add types definition or example for this response
+            "4XX":
+              description: Bad request
+            "5XX":
+              description: Server error
   getProductById:
     handler: src/lambdas/getProductById.handler
     events:
       - httpApi:
           path: /products/{productId}
           method: get
-          summary: Get one product by his ID
+          summary: Get product by ID
+          description: Gets one specific product based on his ID
+          swaggerTags: Products
+          responses:
+            "200":
+              description: Successfully returned the product data
+            "4XX":
+              description: Bad request
+            "5XX":
+              description: Server error
   createProduct:
     handler: src/lambdas/createProduct.handler
     events:
@@ -145,12 +176,35 @@ functions:
           path: /products
           method: post
           summary: Saves product item into DB
+          swaggerTags: Products
+          bodyType: Products
+          responses:
+            "200":
+              description: Successfully created new product data
+            "4XX":
+              description: Bad request
+            "5XX":
+              description: Server error
   importProductsFile:
     handler: src/lambdas/importProductsFile.handler
     events:
       - httpApi:
           path: /import
           method: get
+          summary: Returns a signed URL to be used to upload a CSV file, signed url its valid for only 1 minute.
+          swaggerTags: Products File
+          queryStringParameters:
+            name:
+              required: true
+              type: string
+              description: The file name to generate the signedURL
+          responses:
+            "200":
+              description: Successfully returned signed URL
+            "4XX":
+              description: Bad request
+            "5XX":
+              description: Server error
   importFileParser:
     handler: src/lambdas/importFileParser.handler
     events:
