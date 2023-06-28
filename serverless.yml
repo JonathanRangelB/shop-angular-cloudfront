@@ -30,6 +30,19 @@ provider:
   stage: dev
   region: us-east-2
 
+  httpApi:
+    authorizers:
+      basicAuthorizer:
+        type: request
+        functionArn: arn:aws:lambda:us-east-2:904597884993:function:authorization-service-dev-basicAuthorizer
+        identitySource:
+          - $request.header.Authorization
+        payloadVersion: "2.0"
+    cors:
+      allowedOrigins:
+        - https://d33qx0l55b7uyl.cloudfront.net
+        - http://localhost:4200
+
   environment:
     PRODUCTS_TABLE: products
     STOCKS_TABLE: stocks
@@ -92,6 +105,8 @@ custom:
     title: "Videogames product store API"
     typefiles:
       - ./src/types/api-types.d.ts
+    apiKeyHeaders:
+      - BearerAuthentication
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -191,6 +206,8 @@ functions:
       - httpApi:
           path: /import
           method: get
+          authorizer:
+            name: basicAuthorizer
           summary: Returns a signed URL to be used to upload a CSV file, signed url its valid for only 1 minute.
           swaggerTags: Products File
           queryStringParameters:

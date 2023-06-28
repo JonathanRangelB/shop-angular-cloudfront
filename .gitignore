@@ -9,6 +9,8 @@
 
 # dependencies
 /node_modules
+/src/authorization-service/node_modules
+/src/authorization-service/.serverless
 
 # profiling files
 chrome-profiler-events*.json
