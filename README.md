@@ -29,3 +29,27 @@ Follow the steps:
 - git clone
 - npm i
 - ng serve
+
+## Task 2
+
+S3 website (index html) [HERE](https://shop-angular-cloudfront3850.s3.us-east-2.amazonaws.com/index.html)
+FrontCloud [HERE](https://d33qx0l55b7uyl.cloudfront.net/)
+Swagger [HERE](https://k74k9eskp6.execute-api.us-east-2.amazonaws.com/swagger)
+
+## Task 3
+
+Endpoints created:
+
+- Get all products [GET](https://k74k9eskp6.execute-api.us-east-2.amazonaws.com/products)
+- Get product by ID [GET](https://k74k9eskp6.execute-api.us-east-2.amazonaws.com/products/dbb935ca-81c3-4647-a392-5f18c91973a4)
+
+## Task 4
+
+Changes on endpoints:
+
+- Get all products [GET](https://k74k9eskp6.execute-api.us-east-2.amazonaws.com/products)
+- Get product by ID [GET](https://k74k9eskp6.execute-api.us-east-2.amazonaws.com/products/dbb935ca-81c3-4647-a392-5f18c91973a4)
+- Create new product [POST](https://k74k9eskp6.execute-api.us-east-2.amazonaws.com/products)
+
+now the products are being stored on dynamoDB instead a plain JSON file.
+using [AJV](https://ajv.js.org/) to make validations on new products creation, mandatory should have "title", "price", "count", "description"
